@@ -1,8 +1,26 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import favoriteProducts from "../../api/products.json"
+import FavoriteProduct from '../favoriteProduct/FavoriteProduct'
+import SectionTitle from '../SectionTitle'
 
 const Favorites = () => {
+const [products, setProducts] = useState([])
+useEffect(()=>{
+  setProducts(favoriteProducts)
+},[])
   return (
-    <div>Favorites</div>
+    <div className='mx-36'  >
+      <SectionTitle title={"Favoriler"} />
+      <div className='grid grid-cols-8 bg-white  '>
+
+      {
+        products && products.map(product =>(
+          <FavoriteProduct key={product.id} product ={product} />
+          ))
+        }
+        </div>
+    
+    </div>
   )
 }
 
