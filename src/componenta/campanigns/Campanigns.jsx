@@ -49,17 +49,39 @@ const Campanigns = () => {
     autoplaySpeed : 2000,
     cssEase: "linear",
     nextArrow: <NextBtn />,
-      prevArrow: <PrevBtn />
+      prevArrow: <PrevBtn />,
+      responsive: [
+        {
+          breakpoint: 1024,
+          settings: {
+            slidesToShow: 2,
+            arrows:false
+            
+            
+          }
+        },
+        {
+          breakpoint: 770,
+          settings: {
+            slidesToShow: 1,
+            arrows:false
+            
+            
+          }
+        }
+    ]
   };
   return (
-    <div className='mx-36 my-8' >
+    <div className='container mx-auto w-full  my-0 lg:my-8' >
+      <div className='lg:block hidden'>
       <SectionTitle title={"Kampanyalar"} />
+      </div>
        <Slider className='-mx-2' {...settings} >
      {
        banner && banner.map(item =>(
          <div key={item.id} className="" >
-           <picture className='block px-2 ' >
-         <img src={item.image} className="rounded-xl"  alt="" />
+           <picture className='block lg:px-2 ' >
+         <img src={item.image} className="lg:rounded-xl "  alt="" />
            </picture>
       </div>
          ))

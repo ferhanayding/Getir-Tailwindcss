@@ -2,8 +2,13 @@ import React from 'react'
 import Slider from "react-slick";
 import ReactFlagsSelect from 'react-flags-select';
 import  { useState } from 'react';
+import {
+  useWindowWidth,
+ 
+} from '@react-hook/window-size'
 
 const HeroSection = () => {
+  const windowWidth = useWindowWidth()
   const [selected, setSelected] = useState('AZ');
   const phones ={
     US : "+1",
@@ -23,10 +28,11 @@ const HeroSection = () => {
         cssEase: "linear"
       };
   return (
-    // <div className=' relative before:bg-gradient-to-r before:from-primary-brand-color before:to-transparent before:absolute before:inset-0 before:h-full z-10  ' >
-    <div className=' relative h-[500px] before:bg-gradient-to-r before:from-primary-brand-color before:to-transparent before:absolute before:inset-0 before:h-full before:z-10  ' >
     
-    <Slider {...settings}>
+    <div className=' relative h-auto lg:h-[500px] before:bg-gradient-to-r before:from-primary-brand-color before:to-transparent before:absolute before:inset-0 before:h-full before:z-10  ' >
+    {
+      windowWidth >= 1024 && 
+      <Slider {...settings}>
       <div>
       <img className="w-full h-[500px] object-cover " src="https://getir.com/_next/static/images/getir-mainpage-4-1751ad2d8fb42a88742d6751938da7e7.jpg" />
       </div>
@@ -35,12 +41,13 @@ const HeroSection = () => {
       </div>
      
     </Slider>
-    <div className='container px-36  absolute top-0 left-1/2 -translate-x-1/2 h-full z-20 flex justify-between items-center ' >
-      <div >
+    }
+    <div className='lg:container lg:p-36 p-0 relative   lg:absolute top-0 left-0 lg:left-1/2 -translate-x-0  lg:-translate-x-1/2 h-full z-20 flex justify-between items-center ' >
+      <div className='hidden lg:block' >
         <img src="https://getir.com/_next/static/images/bimutluluk-b3a7fcb14fc9a9c09b60d7dc9b1b8fd6.svg" alt="" />
         <h3 className='font-semibold text-white mt-8 text-4xl'>Dakikalar İçinde <br /> Kapınızda</h3>
       </div>
-      <div className=' w-[400px] rounded-lg bg-gray-50 p-6' >
+      <div className=' w-full  lg:w-[400px] lg:rounded-lg bg-gray-50 p-6' >
         <h4 className='text-primary-brand-color font-semibold text-center mb-3 '>Giriş Yap veya Kayıt Ol</h4>
         <div className='flex'>
         <ReactFlagsSelect
@@ -55,7 +62,7 @@ const HeroSection = () => {
       <span className='absolute text-gray-400 text-sm top-0 left-0 h-full cursor-text px-6 flex items-center peer-focus:h-7 peer-valid:text-[12px] peer-valid:h-7 peer-focus:text-[12px] transition-all peer-focus:text-primary-brand-color peer-valid:text-primary-brand-color ' >Telefon Numarası</span>
     </label>
         </div>
-    <div className='w-[360px]   mt-4 '> <button className=' bg-sari-color rounded-lg w-full h-[48px] text-sm text-primary-brand-color font-semibold hover:text-sari-color hover:bg-secondary-brand-color transiton-colors'>Telefon numarası ile devam et</button> </div>
+    <div className='w-full mt-4 '> <button className=' bg-sari-color rounded-lg w-full h-[48px] text-sm text-primary-brand-color font-semibold hover:text-sari-color hover:bg-secondary-brand-color transiton-colors'>Telefon numarası ile devam et</button> </div>
       </div>
     </div>
   </div>  )

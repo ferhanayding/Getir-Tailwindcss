@@ -9,9 +9,9 @@ useEffect(()=>{
   setProducts(favoriteProducts)
 },[])
   return (
-    <div className='mx-36'  >
+    <div className=''  >
       <SectionTitle title={"Favoriler"} />
-      <div className='grid grid-cols-8 bg-white  '>
+      <div className='grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 2xl:grid-cols-8  bg-white  '>
 
       {
         products && products.map(product =>(

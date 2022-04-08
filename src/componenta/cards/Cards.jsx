@@ -8,7 +8,7 @@ const Cards = () => {
   }, [])
   
   return (
-    <div className='mx-36 flex gap-4 my-16'>
+    <div className='container flex gap-4 my-16'>
       {
         cards && cards.map(card => (
           <Card key={card.id} card={card} />
